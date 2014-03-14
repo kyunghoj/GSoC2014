@@ -1,6 +1,5 @@
-Title
+Title: (PIG-2597) Move Grunt from JavaCC to ANTLR
 --
-(PIG-2597) Move Grunt from JavaCC to ANTLR
 
 Abstract
 --

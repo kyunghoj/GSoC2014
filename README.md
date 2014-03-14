@@ -1,12 +1,9 @@
 # Title: (PIG-2597) Move Grunt from JavaCC to ANTLR
 
 Abstract (500 characters):
-==
+--
 Currently, Pig utilizes two different parser generators, JavaCC for Grunt and ANTLR for query processing. The status is problematic because of unnecessary complexity. Using two different parser generators is confusing to new developers. It is also burdensome for developers since they have to keep and understand both frameworks. Eventually, it would hamper the development of Pig project.
 In this project, I will re-implement Grunt, an interactive command line interface for Pig, using ANTLR parser generator. Removing the dependency on JavaCC will help Apache Pig project keep clean, easy to maintain codebase. 
-
-Content
-==
 
 Benefits to Community
 --
@@ -42,9 +39,9 @@ Additionally, replacing preprocessor can be considered. class ParameterSubstitut
 
 Timeline
 --
- * First month (May ~ June): Implement a test class for at least a few Grunt commands and parser for the commands. This will make sure the development is on track with a right direction. 
- * Second month (June ~ July): Fix the problems (if any) from the first month. Continue adding commands to the implementation. 
- * Final month (July ~ Aug): Ask the community for review and test code and documentation. We may ask to create a separate branch as the changes in Grunt can be too disruptive. 
+ * First month (May 19 ~ June 18): Implement a test class for at least a few Grunt commands and parser for the commands. This will make sure the development is on track with a right direction. 
+ * Second month (June 19 ~ July 18): Fix the problems (if any) from the first month. Continue adding commands to the implementation. 
+ * Final month (July 19 ~ August 18): Ask the community for review and test code and documentation. We may ask to create a separate branch as the changes in Grunt can be too disruptive. 
 
 About Me
 --
@@ -56,6 +53,6 @@ Before my graduate studies, I had been a software developer for more than 4 year
 
 Contact Info
 --
-e-mail: kyungho.jeon@gmail.com
-www: http://www.cse.buffalo.edu/~kyunghoj
+ * e-mail: kyungho.jeon@gmail.com
+ * www: http://www.cse.buffalo.edu/~kyunghoj
 

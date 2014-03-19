@@ -8,8 +8,9 @@ ANTLR for query processing. The status is problematic because of unnecessary
 complexity. Using two different parser generators in a project is confusing to
 new developers. It is also burdensome for developers since they have to 
 understand both frameworks and maintain both dependencies in build process.
-Eventually, it hampers the development of Pig project and frustrates new 
-contributors. In this project, I will re-implement Grunt, an interactive
+Eventually it will hamper the development of Pig project and frustrates new 
+contributors.
+In this project, I will re-implement Grunt, an interactive
 command line interface for Pig, using ANTLR parser generator. Removing the
 dependency on JavaCC will help Apache Pig project keep clean, easy to maintain
 codebase. 

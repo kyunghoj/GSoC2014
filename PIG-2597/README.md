@@ -5,11 +5,13 @@ Abstract
 --
 Currently, Pig utilizes two different parser generators, JavaCC for Grunt and
 ANTLR for query processing. The status is problematic because of unnecessary
-complexity. Using two different parser generators in a project is confusing to
-new developers. It is also burdensome for developers since they have to 
-understand both frameworks and maintain both dependencies in build process.
+complexity. First, using two different parser generators in a project is
+confusing to new developers. Second, it is burdensome for developers since
+they have to understand both frameworks and maintain both dependencies in
+build process.
 Eventually it will hamper the development of Pig project and frustrates new 
 contributors.
+
 In this project, I will re-implement Grunt, an interactive
 command line interface for Pig, using ANTLR parser generator. Removing the
 dependency on JavaCC will help Apache Pig project keep clean, easy to maintain
@@ -20,6 +22,7 @@ Benefits to Community
  * Implementing Grunt using ANTLR will reduce unnecessary complexity from
    having both JavaCC and ANTLR as parser generator. 
  * The new implementation will be cleaner and easier to maintain codebase. 
+ * `TODO` Pig Macro 
  * Eventually, adding features to Grunt will become easier. 
 
 Project Goals (Deliverables)

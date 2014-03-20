@@ -27,6 +27,8 @@ Benefits to Community
  * By merging two parsers into a single implementation, Pig will have
  a consolidated, easy to understand codebase, which is essential for 
  successful open-source projects.
+ * Specifically, Pig Macro can be a fully functional piece of Pig script
+ after `GruntParser` is integrated into `QueryParser`.
 
 Project Goals (Deliverables)
 --
@@ -59,14 +61,13 @@ flows:
 First of all, this approach is not easy to understand without a proper
 background. Even after a developer understood, changing and/or adding features
 to those parts is difficult. For example, a macro definition is processed by
-ANTLR-generated parser, but the macro could include a command that should be
-processed by GruntParser. This specific problem was solved by a workaround
-that supplements QueryParser with codes which handle Grunt commands.
+ANTLR-generated parser, but the macro could include a Grunt command
+which should be handled by GruntParser. This specific problem was solved by a
+workaround that supplements QueryParser with codes which handle Grunt commands.
 But a better approach would be having a consolidated parser for both 
 Grunt shell commands and Pig script.
 
 The new Grunt implementation will be integrated into `class QueryParser`.
-
 Each Grunt command definition will be added to query grammar definition files.
 But each method defined in `class GruntParser` that currently processes the
 command can remain as much as possible.
@@ -91,7 +92,7 @@ script.
 Timeline
 --
  * First month (May 19 ~ June 18): Implement a test class for at least a few
-   Grunt commands and parser for the commands. This will make sure the
+   Grunt commands and add the command to QueryParser. This will make sure the
    development is on track with a right direction. 
  * Second month (June 19 ~ July 18): Fix the problems (if any) from the first
    month. Continue adding commands to the implementation. 
@@ -100,24 +101,23 @@ Timeline
 
 About Me
 --
-I am a fourth year PhD student in computer science at SUNY Buffalo. My main
-research interest lies in distributed data processing systems. Currently I am
-developing a wide-area data processing system that adapts Pig Latin script
-language for describing data flows. 
+I am a fourth year PhD student in computer science at University at Buffalo, 
+the State Univeristy of New York. My main research interest lies in distributed
+data processing systems. Currently I am developing a wide-area data processing
+system that uses Pig Latin script language for describing data flows. 
 
 Thanks to my research experience, I have a good understanding of how Pig
 processes Grunt shell commands and Pig Latin scripts, generates logical plans,
-and how the logical plan is translated into MapReduce jobs.
-I am knowledgeable in developing Hadoop MapReduce
-applications and installing Hadoop MapReduce/HBase cluster. 
+and how the plans are translated into MapReduce jobs.  In addition, I am
+knowledgeable in developing Hadoop MapReduce applications and installing Hadoop
+MapReduce/HBase cluster. 
 
 Since early 2013, I have been following Pig development list. 
 I reported bugs and submitted patches [1][2] and particpated in discussions [3]
 even though they were minor issues.
 
 Before my graduate studies, I had been a software developer for more than 4
-years. I am familiar with (distributed) version control systems such as git and
-subversion. 
+years. I am familiar with version control systems such as git and subversion. 
 
 [1] https://issues.apache.org/jira/browse/PIG-3166
 

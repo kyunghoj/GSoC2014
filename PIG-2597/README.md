@@ -22,10 +22,11 @@ easy to maintain codebase and continue to be improved by many contributors.
 
 Benefits to Community
 --
- * Implementing Grunt using ANTLR will reduce unnecessary complexity from
-   having both JavaCC and ANTLR as parser generator. 
- * The new implementation will be cleaner and easier to maintain codebase. 
- * Eventually, adding features to Grunt will become easier. 
+ * Implementing Grunt using ANTLR removes legacy dependency on JavaCC and
+ offers a better opportunity to fix bugs and add new features.
+ * By merging two parsers into a single implementation, Pig will have
+ a consolidated, easy to understand codebase, which is essential for 
+ successful open-source projects.
 
 Project Goals (Deliverables)
 --
@@ -52,8 +53,16 @@ flows:
  * Query processing: If a given string is not a command,
    `processPig(String cmd)`
    registers the query via `PigServer`, and eventually queries will be
-   processed by ANTLR-generated query parser
+   processed by ANTLR-generated query processors
    (`QueryLexer`, `QueryParser`, `AstValidator`, `LogicalPlanGenerator`, ...).
+
+First of all, this approach is not easy to understand without a proper
+background. Even after a developer understood, changing and/or adding features
+to those parts is difficult. For example, a macro definition is processed by
+ANTLR-generated parser, but the macro could include a command that should be
+processed by GruntParser. This specific problem was solved by a workaround
+that supplements QueryParser with codes which handle Grunt commands.
+But a better approach would be having a consolidated parser generator
 
 The new Grunt implementation will not change the query processing
 part. Instead, the change will only affect `class PigScriptParser` and its 
@@ -113,7 +122,9 @@ years. I am familiar with (distributed) version control systems such as git and
 subversion. 
 
 [1] https://issues.apache.org/jira/browse/PIG-3166
+
 [2] https://issues.apache.org/jira/browse/PIG-3816
+
 [3] https://issues.apache.org/jira/browse/PIG-3809
 
 Contact Info

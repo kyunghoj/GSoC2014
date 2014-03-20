@@ -4,28 +4,26 @@ Title: (PIG-2597) Move Grunt from JavaCC to ANTLR
 Abstract
 --
 Currently, Pig utilizes two frameworks for generating language processors.
-Notably, Grunt, an interactive command-line interface for Pig, is implemented
-based on JavaCC. But most query scripts are parsed by ANTLR-generated
-components.  This status is problematic because of unnecessary
-complexity. First, using two different parser generators in a project is
+Grunt, an interactive command-line interface for Pig, is implemented
+using JavaCC. But query scripts are parsed by ANTLR-based QueryParser.
+This status is problematic due to the following reasons.
+First, using two different parser generators in one project is
 confusing to developers, especially new ones.
-Second, it is burdensome even for experienced contributors since
-they have to understand both frameworks and maintain both dependencies in
-build processes.
-Third, the different implementations hamper adding new features. For example,
-it was not possible to use Grunt commands such as `register` in Pig Macro
-until a workaround patch was committed.
+Second, even for experienced contributors, understanding both frameworks
+and maintaining dependencies in build processes are burdensome. 
+Third, the different implementations of Grunt and QueryParser hamper adding
+new features. For example, it was not possible to use Grunt commands such as
+`register` in Pig Macro until a workaround patch was committed.
 
-In this Google Summer of Code project, I will solve the above problems
-by implementing Grunt with ANTLR.  Removing the dependency on JavaCC will help
-Apache Pig project keep clean, easy to maintain codebase and continue to be
-improved by many contributors. 
+In this Google Summer of Code project, I will solve the above problem
+by reimplementing Grunt and merging Grunt implementation with QueryParser. 
+Removing Grunt's dependency on JavaCC will help Apache Pig project keep clean,
+easy to maintain codebase and continue to be improved by many contributors. 
 
 Benefits to Community
 --
  * Implementing Grunt using ANTLR will reduce unnecessary complexity from
    having both JavaCC and ANTLR as parser generator. 
- * `TODO` Pig Macro 
  * The new implementation will be cleaner and easier to maintain codebase. 
  * Eventually, adding features to Grunt will become easier. 
 

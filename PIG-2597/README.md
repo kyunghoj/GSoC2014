@@ -3,32 +3,36 @@ Title: (PIG-2597) Move Grunt from JavaCC to ANTLR
 
 Abstract
 --
-Currently, Pig utilizes two frameworks for generating language processors.
+Apache Pig a platform for analyzing large scale data sets using high-level
+data flow language.
+Currently Pig utilizes two frameworks for generating language processors.
 Grunt, an interactive command-line interface for Pig, is implemented
 using JavaCC. But query scripts are parsed by ANTLR-based QueryParser.
 This status is problematic due to the following reasons.
 First, using two different parser generators in one project is
-confusing to developers, especially new ones.
+confusing to developers, especially to new ones.
 Second, even for experienced contributors, understanding both frameworks
 and maintaining dependencies in build processes are burdensome. 
-Third, the different implementations of Grunt and QueryParser hamper adding
-new features. For example, it was not possible to use Grunt commands such as
-`register` in Pig Macro until a workaround patch was committed.
+Third, the different implementations of GruntParser and QueryParser hamper
+adding new features. For example, it was not possible to use Grunt commands
+such as `register` in Pig Macro because QueryParser does not understand Grunt
+commands. (The issue was solved by a workaround patch.)
 
-In this Google Summer of Code project, I will solve the above problem
-by reimplementing Grunt and merging Grunt implementation with QueryParser. 
-Removing Grunt's dependency on JavaCC will help Apache Pig project keep clean,
-easy to maintain codebase and continue to be improved by many contributors. 
+In this Google Summer of Code project, I will solve the above problem by
+reimplementing GruntParser and merging GruntParser implementation with
+QueryParser.  Removing GruntParser's dependency on JavaCC will help Apache Pig
+project keep clean, easy to maintain codebase and continue to be improved by
+many contributors. 
 
 Benefits to Community
 --
- * Implementing Grunt using ANTLR removes legacy dependency on JavaCC and
+ * Implementing GruntParser using ANTLR removes legacy dependency on JavaCC and
  offers a better opportunity to fix bugs and add new features.
- * By merging two parsers into a single implementation, Pig will have
- a consolidated, easy to understand codebase, which is essential for 
- successful open-source projects.
- * Specifically, Pig Macro can be a fully functional piece of Pig script
- after `GruntParser` is integrated into `QueryParser`.
+   * By merging two parsers into a single implementation, Pig will have
+   a consolidated, easy to understand codebase, which is essential for 
+   successful open-source projects.
+   * Specifically, Pig Macro can be a fully functional piece of Pig script
+   after `GruntParser` is integrated into `QueryParser`.
 
 Project Goals (Deliverables)
 --

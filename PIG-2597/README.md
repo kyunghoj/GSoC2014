@@ -31,6 +31,7 @@ Benefits to Community
    * By merging two parsers into a single implementation, Pig will have
    a consolidated, easy to understand codebase, which is essential for 
    successful open-source projects.
+
    * Specifically, Pig Macro can be a fully functional piece of Pig script
    after `GruntParser` is integrated into `QueryParser`.
 

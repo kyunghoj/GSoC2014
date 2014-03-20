@@ -63,13 +63,13 @@ ANTLR-generated parser, but the macro could include a command that should be
 processed by GruntParser. This specific problem was solved by a workaround
 that supplements QueryParser with codes which handle Grunt commands.
 But a better approach would be having a consolidated parser for both 
-Grunt commands and Pig script.
+Grunt shell commands and Pig script.
 
-The new Grunt implementation will be integrated into `QueryParser`.
+The new Grunt implementation will be integrated into `class QueryParser`.
 
-Each Grunt command definition will be added to 
-in Grunt will be defined in a new grammar code for ANTLR. 
-But each method actually processes the command can remail as much as possible.
+Each Grunt command definition will be added to query grammar definition files.
+But each method defined in `class GruntParser` that currently processes the
+command can remain as much as possible.
 For example, the following grammar definition, even though it is not accurate,
 can define `rm` command in Grunt:
 ```

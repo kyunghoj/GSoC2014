@@ -3,6 +3,17 @@ Title: (PIG-2597) Move Grunt from JavaCC to ANTLR
 
 Abstract
 --
+Apache Pig a platform for analyzing large scale data sets using high-level data
+flow language.  Currently Pig utilizes two frameworks, JavaCC and ANTLR for
+generating language processors.
+
+In this Google Summer of Code project, I will reimplement GruntParser using
+ANTLR and merge it QueryParser.  Removing GruntParser's dependency on JavaCC
+will help Apache Pig project keep clean, easy to maintain codebase and continue
+to be improved by many contributors.
+
+Synopsys
+--
 Apache Pig a platform for analyzing large scale data sets using high-level
 data flow language.  Currently Pig utilizes two frameworks for generating
 language processors.

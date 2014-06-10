@@ -1,3 +1,55 @@
+2014-06-10
+===
+
+`QueryParser.g` starts with the following definition:
+
+```
+query : statement* EOF -> ^( QUERY statement* )
+;
+```
+
+`QUERY` seems like an imaginary token. 
+
+Anyway, the output of the parser is `AST`, but it does not need to be the case
+if it is a `Grunt` command.
+
+However, what if a `Grunt` command is included in a macro?
+
+2014-06-09
+===
+
+> Pig allows three modes of user interaction:
+>
+> 1. Interactive mode: In this mode, the user is presented with an (...)
+>
+> 2. Batch mode: In this mode, a user submits a pre-written script containing
+> a series of Pig commands, typically ending with STORE (...)
+>
+> 3. Embedded mode: Pig is also provided as a Java library allowing Pig Latin
+> commands to be submitted via method invocations from a Java program. (...)
+>
+
+Keep in mind that it needs to support embedded mode. 
+
+One way to think about is to implement a single parser that parses everything
+(Grunt command as well as Pig Latin). If it sees a Pig Latin script, then 
+it will build a logical plan. But a Grunt command comes, it can just execute the 
+command and do not add to a logical plan.
+
+`GruntParser.processPig(String)` is called from `PigScriptParser.parse()`. 
+
+`PigScriptParser.parse()` is called from:
+ * `GruntParser.loadScript(String, boolean, ...)`,
+ * `GruntParser.parseOnly()`, or
+ * `GruntParser.parseStopOnError(boolean)`.
+
+Doing
+---
+
+Created `PigScriptLexer.g` be copying `QueryLexer.g`. Adding Grunt commands to the lexer.
+
+But the first job is to understand ANTLR lexer and parser generation.
+
 2014-05-31
 ===
 
@@ -97,3 +149,51 @@ Memo
 TODO
 ---
  * Add one or two test codes and see if they work
+
+2014-05-23
+===
+
+Related packages
+---
+
+ * org.apache.pig.tools.pigscript: JavaCC-based parser generator code
+ * org.apache.pig.tools.grunt: (kind of) frontend to Pig, PigScriptParser, ...
+ * org.apache.pig.parser: ANTLR-based Query parser and LP Generator code
+
+Plan
+---
+ * Merge them into one package, (maybe) org.apache.pig.parser
+
+How Pig Macro Works
+===
+
+A Brief Primer
+---
+
+A macro definition can appear anywhere in a Pig script
+as long as it appears before its first use. A macro definition
+can also include references to other macros, but recursive references
+are not allowed.
+
+Macro cannot be used inside a `FOREACH` nested block. Grunt shell commands
+are not allowed in macros.
+
+An example:
+```
+DEFINE my_macro(A, sortkey) RETURNS C {
+    B = FILTER $A BY my_filter(*);
+    $C = ORDER B BY $sortkey;
+}
+```
+
+Only aliases A and C are visible from the outside of the macro.
+
+Call Hierarchy
+---
+
+`QueryParserDriver.expandMacro(Tree)`
+<-`QueryParserDriver.parse(String)`
+  <-`PigServer.Graph.parseQuery()` or
+  <-`PigServer.Graph.validateQuery()`
+
+

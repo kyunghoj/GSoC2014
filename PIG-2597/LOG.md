@@ -176,7 +176,7 @@ can also include references to other macros, but recursive references
 are not allowed.
 
 Macro cannot be used inside a `FOREACH` nested block. Grunt shell commands
-are not allowed in macros.
+are not allowed in macros (need to be fixed in this project).
 
 An example:
 ```
@@ -187,6 +187,8 @@ DEFINE my_macro(A, sortkey) RETURNS C {
 ```
 
 Only aliases A and C are visible from the outside of the macro.
+
+What is "inline macro"?
 
 Call Hierarchy
 ---

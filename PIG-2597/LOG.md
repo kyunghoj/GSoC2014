@@ -2,7 +2,7 @@
 ===
 * I need to update my mentor at least once a week. 
 
-2014-6-18
+2014-06-18
 ===
 The following is the status update I sent:
 

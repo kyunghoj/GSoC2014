@@ -1,3 +1,35 @@
+2014-06-19
+===
+* I need to update my mentor at least once a week. 
+
+2014-6-18
+===
+The following is the status update I sent:
+
+> Hello,
+>
+> I have updated current status on Jira as a comment.
+>
+> https://issues.apache.org/jira/browse/PIG-2597
+> 
+> But the comment was restricted to contributors (my mistake, and I
+don't know how to edit the comment...), so it doesn't seem to be
+forwarded to the list.
+>
+> Just in case you haven't checked it, I include it in this e-mail:
+
+>> This is just a status update for GSoC:
+>>
+>> My proposal planned to write test codes first, but I realized that the test code can be better if I write after some concrete design/plan for the implementation.
+>>
+>> Right now I am working on an integrated parser for Grunt commands and Pig Latin. I found Boski Shah's work 2 years ago above actually matches with my direction, but it also requires updates since the changes have been introduced into Pig codebase. In addition, it didn't consider the integration of register, parameter substitution, etc.
+>>
+>> I will update as soon as I have some code that can be reviewed. Thank you.
+>>
+>
+>Thank you,
+>Kyungho.
+
 2014-06-10
 ===
 

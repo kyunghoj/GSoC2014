@@ -110,7 +110,11 @@ From https://github.com/apache/pig
  * [new branch]      pretypes   -> upstream/pretypes
  * [new branch]      tez        -> upstream/tez
  * [new branch]      trunk      -> upstream/trunk
+```
 
+Then, the changes from the upstream should be merged.
+
+```
 kyunghoj@jeju:~/git/gsoc2014/pig$ git merge upstream/trunk
 ```
 

@@ -1,6 +1,11 @@
+2014-06-20
+===
+* [How to contribuite?](https://cwiki.apache.org/confluence/display/PIG/HowToContribute)
+
 2014-06-19
 ===
 * I need to update my mentor at least once a week. 
+* Changes ongoing: can compile, but do not work correctly (at all).
 
 2014-06-18
 ===

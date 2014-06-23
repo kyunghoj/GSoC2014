@@ -1,6 +1,7 @@
 2014-06-23
 ===
 * 3110d3f64465d02597c473ad07300781e75970ef : ast returned does not have any child.
+* What about writing a simple GruntParser with ANTLR? 
 
 2014-06-20
 ===

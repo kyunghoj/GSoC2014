@@ -1,3 +1,7 @@
+2014-06-23
+===
+* 3110d3f : ast returned does not have any child.
+
 2014-06-20
 ===
 * [How to contribuite?](https://cwiki.apache.org/confluence/display/PIG/HowToContribute)

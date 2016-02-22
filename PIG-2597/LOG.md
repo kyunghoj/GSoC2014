@@ -1,3 +1,45 @@
+2014-06-23
+===
+* 3110d3f64465d02597c473ad07300781e75970ef : ast returned does not have any child.
+* What about writing a simple GruntParser with ANTLR? 
+
+2014-06-20
+===
+* [How to contribuite?](https://cwiki.apache.org/confluence/display/PIG/HowToContribute)
+
+2014-06-19
+===
+* I need to update my mentor at least once a week. 
+* Changes ongoing: can compile, but do not work correctly (at all).
+
+2014-06-18
+===
+The following is the status update I sent:
+
+> Hello,
+>
+> I have updated current status on Jira as a comment.
+>
+> https://issues.apache.org/jira/browse/PIG-2597
+> 
+> But the comment was restricted to contributors (my mistake, and I
+don't know how to edit the comment...), so it doesn't seem to be
+forwarded to the list.
+>
+> Just in case you haven't checked it, I include it in this e-mail:
+
+>> This is just a status update for GSoC:
+>>
+>> My proposal planned to write test codes first, but I realized that the test code can be better if I write after some concrete design/plan for the implementation.
+>>
+>> Right now I am working on an integrated parser for Grunt commands and Pig Latin. I found Boski Shah's work 2 years ago above actually matches with my direction, but it also requires updates since the changes have been introduced into Pig codebase. In addition, it didn't consider the integration of register, parameter substitution, etc.
+>>
+>> I will update as soon as I have some code that can be reviewed. Thank you.
+>>
+>
+>Thank you,
+>Kyungho.
+
 2014-06-10
 ===
 
@@ -110,7 +152,11 @@ From https://github.com/apache/pig
  * [new branch]      pretypes   -> upstream/pretypes
  * [new branch]      tez        -> upstream/tez
  * [new branch]      trunk      -> upstream/trunk
+```
 
+Then, the changes from the upstream should be merged.
+
+```
 kyunghoj@jeju:~/git/gsoc2014/pig$ git merge upstream/trunk
 ```
 
